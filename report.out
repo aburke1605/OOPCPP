@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Code design and implementation}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Particles}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{particle::set\137decay\137modes\(\)}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.2}{particle::decay\(\)}{subsection.2.1}% 5
+\BOOKMARK [3][-]{subsubsection.2.1.3}{particle::get\137theta\(\)}{subsection.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Detectors}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Collisions}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.4}{Randomness}{section.2}% 9
+\BOOKMARK [1][-]{section.3}{Results}{}% 10
+\BOOKMARK [1][-]{section.4}{Discussion and conclusion}{}% 11
+\BOOKMARK [1][-]{appendix.A}{Impact of COVID19 on the work completed and report}{}% 12
+\BOOKMARK [1][-]{appendix.B}{Length}{}% 13

@@ -1,0 +1,62 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{eff}
+\citation{ATLAS}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Code design and implementation}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Particles}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Class design for particles involved in collisions at the LHC. The mass, momentum and energy of particles are in units of GeV throughout, and the charge in units of the electron charge \textit  {e}. The momentum is stored as a \texttt  {vector} of the x, y and z components to simplify access in various functions.\relax }}{3}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig::particle}{{1}{3}{Class design for particles involved in collisions at the LHC. The mass, momentum and energy of particles are in units of GeV throughout, and the charge in units of the electron charge \textit {e}. The momentum is stored as a \texttt {vector} of the x, y and z components to simplify access in various functions.\relax }{figure.caption.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces All of the abstract derived \texttt  {particle} classes. The \texttt  {charge} is defined in these along with extra definitions for the \texttt  {neutrino} class specifically. Namespaces are used to distinguish quarks with positive and negative charge, with the up-type and down-type nomenclature used in particle physics.\relax }}{3}{figure.caption.2}\protected@file@percent }
+\newlabel{fig::abstractderivedparticles}{{2}{3}{All of the abstract derived \texttt {particle} classes. The \texttt {charge} is defined in these along with extra definitions for the \texttt {neutrino} class specifically. Namespaces are used to distinguish quarks with positive and negative charge, with the up-type and down-type nomenclature used in particle physics.\relax }{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Derived \texttt  {muon} class with constructor declarations and definitions.\relax }}{4}{figure.caption.3}\protected@file@percent }
+\newlabel{fig::muon}{{3}{4}{Derived \texttt {muon} class with constructor declarations and definitions.\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}\texttt  {particle::set\_decay\_modes()}}{5}{subsubsection.2.1.1}\protected@file@percent }
+\newlabel{begin}{{2.1.1}{5}{\texttt {particle::set\_decay\_modes()}}{subsubsection.2.1.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Definition of \texttt  {particle::set\_decay\_modes()} for the \texttt  {muon} class. The muon decays to an electron, emitting a muon-neutrino and an electron-antineutrino.\relax }}{5}{figure.caption.4}\protected@file@percent }
+\newlabel{fig::set_decay_modes}{{4}{5}{Definition of \texttt {particle::set\_decay\_modes()} for the \texttt {muon} class. The muon decays to an electron, emitting a muon-neutrino and an electron-antineutrino.\relax }{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.2}\texttt  {particle::decay()}}{5}{subsubsection.2.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.3}\texttt  {particle::get\_theta()}}{6}{subsubsection.2.1.3}\protected@file@percent }
+\newlabel{end}{{2.1.3}{6}{\texttt {particle::get\_theta()}}{subsubsection.2.1.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Using try-throw-catch to avoid dividing by zero when calculating the polar angle $\theta $ of a momentum vector.\relax }}{6}{figure.caption.5}\protected@file@percent }
+\newlabel{fig::gettheta}{{5}{6}{Using try-throw-catch to avoid dividing by zero when calculating the polar angle $\theta $ of a momentum vector.\relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Detectors}{6}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Collisions}{6}{subsection.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Structure of the \texttt  {detector} abstract base class and the implementation of an electronic calorimeter class, \texttt  {e\_calorimeter}, which inherits from \texttt  {detector}. The only particles which interact with an electronic calorimeter are electrons and photons, hence these are added to \texttt  {interactions}.\relax }}{7}{figure.caption.6}\protected@file@percent }
+\newlabel{fig::detector}{{6}{7}{Structure of the \texttt {detector} abstract base class and the implementation of an electronic calorimeter class, \texttt {e\_calorimeter}, which inherits from \texttt {detector}. The only particles which interact with an electronic calorimeter are electrons and photons, hence these are added to \texttt {interactions}.\relax }{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Class structure of a \texttt  {collision} designed to replicate LHC events. The class contains both \texttt  {particle} and \texttt  {detector} objects.\relax }}{8}{figure.caption.7}\protected@file@percent }
+\newlabel{fig::collision}{{7}{8}{Class structure of a \texttt {collision} designed to replicate LHC events. The class contains both \texttt {particle} and \texttt {detector} objects.\relax }{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces An example of a type of interaction occurring in proton collisions. If the interacting partons are quarks, vector boson fusion of $Z$'s can occur.\relax }}{8}{figure.caption.8}\protected@file@percent }
+\newlabel{fig::constr}{{8}{8}{An example of a type of interaction occurring in proton collisions. If the interacting partons are quarks, vector boson fusion of $Z$'s can occur.\relax }{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces A section of the \texttt  {collision::draw\_event()} function showing how charged particles are drawn as curves using the \texttt  {SetPixel()} function, and how decays in different detector segments are implemented with lambda functions.\relax }}{9}{figure.caption.9}\protected@file@percent }
+\newlabel{fig::drawevent}{{9}{9}{A section of the \texttt {collision::draw\_event()} function showing how charged particles are drawn as curves using the \texttt {SetPixel()} function, and how decays in different detector segments are implemented with lambda functions.\relax }{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Randomness}{9}{subsection.2.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Template function returning a randomly generated \texttt  {double} or \texttt  {int} in a range specified by the input parameters \texttt  {lower\_bound} and \texttt  {upper\_bound}. The return value type is governed by the type of input parameters.\relax }}{10}{figure.caption.10}\protected@file@percent }
+\newlabel{fig::random}{{10}{10}{Template function returning a randomly generated \texttt {double} or \texttt {int} in a range specified by the input parameters \texttt {lower\_bound} and \texttt {upper\_bound}. The return value type is governed by the type of input parameters.\relax }{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{11}{section.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Example output of one \texttt  {collision} instance, showing the drawn detector and particles created from the interaction. On the left is a legend showing the colour each particle type is drawn in as well as a list of the initial particles created in the collision.\relax }}{11}{figure.caption.11}\protected@file@percent }
+\newlabel{fig::output}{{11}{11}{Example output of one \texttt {collision} instance, showing the drawn detector and particles created from the interaction. On the left is a legend showing the colour each particle type is drawn in as well as a list of the initial particles created in the collision.\relax }{figure.caption.11}{}}
+\bibstyle{unsrt}
+\bibdata{report}
+\bibcite{eff}{1}
+\bibcite{ATLAS}{2}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion and conclusion}{12}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Impact of COVID19 on the work completed and report}{13}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B}Length}{13}{appendix.B}\protected@file@percent }

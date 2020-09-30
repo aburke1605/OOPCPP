@@ -1,0 +1,154 @@
+#ifndef _INCL_GUARD
+#define _INCL_GUARD
+
+#include <iostream>
+
+class vector {
+private:
+	unsigned int length;
+	double* elements;
+public:
+	vector();
+	vector(const unsigned int& l);
+	~vector();
+	vector(const vector& v);
+	vector(vector&& v) noexcept;
+	double& operator*(const vector& v) const;
+	vector& operator=(const vector& v);
+	vector& operator=(vector&& v) noexcept;
+	double& operator[](const unsigned int& i) const;
+	friend std::ostream& operator<<(std::ostream& os, const vector& v);
+};
+
+#endif
+
+
+#include "Week7.h"
+
+vector::vector() {
+	length = 1;
+	elements = new double[1];
+	(*this)[0] = 0;
+	//std::cout << "Default constructor called" << std::endl;
+}
+
+vector::vector(const unsigned int& l) {
+	if (l < 1) {
+		std::cerr << "Error: vector length must be at least 1" << std::endl;
+		exit(1);
+	}
+
+	length = l;
+	elements = new double[length];
+	for (int i{}; i < (int)length; i++) {
+		(*this)[i] = 0;
+	}
+	//std::cout << "Parametrised constructor called" << std::endl;
+}
+
+vector::~vector() {
+	delete[] elements;
+	//std::cout << "Destructor called" << std::endl;
+}
+
+vector::vector(const vector& v) {
+	length = v.length;
+	elements = new double[length];
+	for (int i{}; i < (int)length; i++) {
+		(*this)[i] = v[i];
+	}
+	//std::cout << "Deep copy constructor called" << std::endl;
+}
+
+vector::vector(vector&& v) noexcept {
+	length = v.length;
+	elements = v.elements;
+	v.length = 1;
+	v.elements = new double[1];
+	v[0] = 0;
+	//std::cout << "Move constructor called" << std::endl;
+}
+
+double& vector::operator*(const vector& v) const {
+	if (length != v.length) {
+		std::cerr << "Error: cannot perform inner product of vectors of unequal dimension" << std::endl;
+		exit(1);
+	}
+
+	double dot_product{};
+	for (int i{}; i < (int)length; i++) {
+		dot_product += (*this)[i] * v[i];
+	}
+	return dot_product;
+}
+
+vector& vector::operator=(const vector& v) {
+	if (this == &v) {
+		return *this;
+	}
+	delete[] elements;
+	length = v.length;
+	elements = new double[length];
+	for (int i{}; i < (int)length; i++) {
+		(*this)[i] = v[i];
+	}
+	//std::cout << "Assignment operator called" << std::endl;
+	return *this;
+}
+
+vector& vector::operator=(vector&& v) noexcept {
+	std::swap(length, v.length);
+	std::swap(elements, v.elements);
+	//std::cout << "Move assignment operator called" << std::endl;
+	return *this;
+}
+
+double& vector::operator[](const unsigned int& i) const {
+	if (i < 0 || i >= length) {
+		std::cerr << "Error: vector index out of range" << std::endl;
+		exit(1);
+	}
+
+	return elements[i];
+}
+
+std::ostream& operator<<(std::ostream& os, const vector& v) {
+	os << "(";
+	for (int i{}; i < (int)v.length; i++) {
+		os << v[i];
+		if (i != v.length - 1) {
+			os << ", ";
+		}
+	}
+	os << ")";
+	return os;
+}
+
+int main() {
+	vector v1;
+	std::cout << "Defaultly constructed vector:\nv1 = " << v1 << std::endl << std::endl;
+
+	vector v2(3);
+	v2[0] = 4;
+	v2[1] = 2;
+	v2[2] = 0;
+	std::cout << "Parametrised vector:\nv2 = " << v2 << std::endl << std::endl;
+
+	vector v3{ v2 }; // deep copy constructor
+	std::cout << "Deep copy of v2:\nv3 = " << v3 << std::endl << std::endl;
+
+	//TODO: move constructor v4
+
+	vector v5(3);
+	v5[0] = 0;
+	v5[1] = 6;
+	v5[2] = 9;
+	std::cout << "New vector:\nv5 = " << v5 << std::endl
+		<< "Dot product:\nv3.v5 = " << v3 * v5 << std::endl << std::endl;
+
+	v1 = v2;
+	std::cout << "Assigning v1 = v2:\nv1 = " << v1 << ", v2 = " << v2 << std::endl << std::endl;
+
+	v1 = std::move(v5);
+	std::cout << "Moving v1 and v5:\nv1 = " << v1 << ", v5 = " << v5 << std::endl << std::endl;
+}

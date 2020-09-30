@@ -1,0 +1,29 @@
+﻿  Week 6.cpp
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(7,32): error C2039: 'location': is not a member of 'matrix'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.h(9): message : see declaration of 'matrix'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(172,35): error C3861: 'location': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(172,54): error C2660: 'matrix::set_element': function does not take 1 arguments
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(153,14): message : see declaration of 'matrix::set_element'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(188,44): error C3861: 'location': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(190,46): error C3861: 'location': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(215,31): error C2039: 'get_element': is not a member of 'matrix'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.h(9): message : see declaration of 'matrix'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(215,34): error C2660: 'matrix::set_element': function does not take 1 arguments
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(153,14): message : see declaration of 'matrix::set_element'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(232,16): error C3861: 'location': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(232,44): error C3861: 'location': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(232,32): error C3861: 'get_element': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(232,75): error C2039: 'get_element': is not a member of 'matrix'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.h(9): message : see declaration of 'matrix'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(232,76): error C3861: 'location': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(244,16): error C3861: 'location': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(244,44): error C3861: 'location': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(244,32): error C3861: 'get_element': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(244,75): error C2039: 'get_element': is not a member of 'matrix'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.h(9): message : see declaration of 'matrix'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(244,76): error C3861: 'location': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(267,85): error C2039: 'get_element': is not a member of 'matrix'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.h(9): message : see declaration of 'matrix'
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(267,86): error C3861: 'location': identifier not found
+C:\Users\aodha\Documents\Physics\oop\oop6\Week 6\Week 6\Week 6.cpp(269,16): error C3861: 'location': identifier not found

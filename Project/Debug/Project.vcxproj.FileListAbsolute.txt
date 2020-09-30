@@ -1,0 +1,2 @@
+C:\Users\aodha\Documents\Physics\oop\Project\Debug\Project.exe
+C:\Users\aodha\Documents\Physics\oop\Project\Debug\Project.pdb

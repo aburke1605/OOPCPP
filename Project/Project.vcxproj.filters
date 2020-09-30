@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Detector">
+      <UniqueIdentifier>{bb20886f-3017-4e4f-993a-0357a055b81f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Particles">
+      <UniqueIdentifier>{b8497e2d-6f8a-4b1c-81a8-87031359ab47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Particles\Quarks">
+      <UniqueIdentifier>{12d02b3b-319f-4b8a-9001-36f037e35e9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Particles\Leptons">
+      <UniqueIdentifier>{2769ae24-6755-405d-8781-f5e5bc0fce32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Particles\Neutrinos">
+      <UniqueIdentifier>{3dca57ea-edf5-44bb-807d-ad3d88a164e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Particles\Bosons">
+      <UniqueIdentifier>{25ec3719-01a6-4dcf-b3b7-54a81e616909}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Electron.cpp">
+      <Filter>Source Files\Particles\Leptons</Filter>
+    </ClCompile>
+    <ClCompile Include="Muon.cpp">
+      <Filter>Source Files\Particles\Leptons</Filter>
+    </ClCompile>
+    <ClCompile Include="Muon_neutrino.cpp">
+      <Filter>Source Files\Particles\Neutrinos</Filter>
+    </ClCompile>
+    <ClCompile Include="Electron_neutrino.cpp">
+      <Filter>Source Files\Particles\Neutrinos</Filter>
+    </ClCompile>
+    <ClCompile Include="Tau.cpp">
+      <Filter>Source Files\Particles\Leptons</Filter>
+    </ClCompile>
+    <ClCompile Include="Tau_neutrino.cpp">
+      <Filter>Source Files\Particles\Neutrinos</Filter>
+    </ClCompile>
+    <ClCompile Include="Down.cpp">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClCompile>
+    <ClCompile Include="Strange.cpp">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClCompile>
+    <ClCompile Include="Bottom.cpp">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClCompile>
+    <ClCompile Include="Photon.cpp">
+      <Filter>Source Files\Particles\Bosons</Filter>
+    </ClCompile>
+    <ClCompile Include="Z_boson.cpp">
+      <Filter>Source Files\Particles\Bosons</Filter>
+    </ClCompile>
+    <ClCompile Include="W_boson.cpp">
+      <Filter>Source Files\Particles\Bosons</Filter>
+    </ClCompile>
+    <ClCompile Include="Gluon.cpp">
+      <Filter>Source Files\Particles\Bosons</Filter>
+    </ClCompile>
+    <ClCompile Include="Charm.cpp">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClCompile>
+    <ClCompile Include="Top.cpp">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClCompile>
+    <ClCompile Include="Up.cpp">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Source Files\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Detector.cpp">
+      <Filter>Source Files\Detector</Filter>
+    </ClCompile>
+    <ClCompile Include="Tracker.cpp">
+      <Filter>Source Files\Detector</Filter>
+    </ClCompile>
+    <ClCompile Include="ECalorimeter.cpp">
+      <Filter>Source Files\Detector</Filter>
+    </ClCompile>
+    <ClCompile Include="HCalorimeter.cpp">
+      <Filter>Source Files\Detector</Filter>
+    </ClCompile>
+    <ClCompile Include="Muon_chamber.cpp">
+      <Filter>Source Files\Detector</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Electron.h">
+      <Filter>Source Files\Particles\Leptons</Filter>
+    </ClInclude>
+    <ClInclude Include="Muon.h">
+      <Filter>Source Files\Particles\Leptons</Filter>
+    </ClInclude>
+    <ClInclude Include="Muon_neutrino.h">
+      <Filter>Source Files\Particles\Neutrinos</Filter>
+    </ClInclude>
+    <ClInclude Include="Electron_neutrino.h">
+      <Filter>Source Files\Particles\Neutrinos</Filter>
+    </ClInclude>
+    <ClInclude Include="Lepton.h">
+      <Filter>Source Files\Particles\Leptons</Filter>
+    </ClInclude>
+    <ClInclude Include="Tau.h">
+      <Filter>Source Files\Particles\Leptons</Filter>
+    </ClInclude>
+    <ClInclude Include="Neutrino.h">
+      <Filter>Source Files\Particles\Neutrinos</Filter>
+    </ClInclude>
+    <ClInclude Include="Tau_neutrino.h">
+      <Filter>Source Files\Particles\Neutrinos</Filter>
+    </ClInclude>
+    <ClInclude Include="Down.h">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClInclude>
+    <ClInclude Include="Strange.h">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClInclude>
+    <ClInclude Include="Bottom.h">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClInclude>
+    <ClInclude Include="Photon.h">
+      <Filter>Source Files\Particles\Bosons</Filter>
+    </ClInclude>
+    <ClInclude Include="Z_boson.h">
+      <Filter>Source Files\Particles\Bosons</Filter>
+    </ClInclude>
+    <ClInclude Include="W_boson.h">
+      <Filter>Source Files\Particles\Bosons</Filter>
+    </ClInclude>
+    <ClInclude Include="Gluon.h">
+      <Filter>Source Files\Particles\Bosons</Filter>
+    </ClInclude>
+    <ClInclude Include="Quark.h">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClInclude>
+    <ClInclude Include="Charm.h">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClInclude>
+    <ClInclude Include="Top.h">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClInclude>
+    <ClInclude Include="Up.h">
+      <Filter>Source Files\Particles\Quarks</Filter>
+    </ClInclude>
+    <ClInclude Include="Detector.h">
+      <Filter>Source Files\Detector</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Source Files\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Particles.h">
+      <Filter>Source Files\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tracker.h">
+      <Filter>Source Files\Detector</Filter>
+    </ClInclude>
+    <ClInclude Include="ECalorimeter.h">
+      <Filter>Source Files\Detector</Filter>
+    </ClInclude>
+    <ClInclude Include="HCalorimeter.h">
+      <Filter>Source Files\Detector</Filter>
+    </ClInclude>
+    <ClInclude Include="Muon_chamber.h">
+      <Filter>Source Files\Detector</Filter>
+    </ClInclude>
+    <ClInclude Include="Detectors.h">
+      <Filter>Source Files\Detector</Filter>
+    </ClInclude>
+    <ClInclude Include="Recoil.h">
+      <Filter>Source Files\Particles</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

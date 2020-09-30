@@ -1,0 +1,3 @@
+﻿  Week6.cpp
+C:\Users\aodha\Documents\Physics\oop\oop6\Week6\Week6.cpp(333): warning C4715: 'operator>>': not all control paths return a value
+  Week6.vcxproj -> C:\Users\aodha\Documents\Physics\oop\oop6\Week6\Debug\Week6.exe

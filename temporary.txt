@@ -1,0 +1,145 @@
+#ifndef _COLLISION_INCL_GUARD
+#define _COLLISION_INCL_GUARD
+
+#include "Particle.h"
+#include "Detector.h"
+
+class collision {
+private:
+	static std::vector<std::shared_ptr<detector>> detector_segments; // must be a shared smart pointer if the detector segments are static members
+	std::vector<std::unique_ptr<particle>> particles;
+	static int number_of_electrons;
+	static int number_of_photons;
+	static int number_of_hadrons;
+	static int number_of_muons;
+public:
+	collision();
+	~collision();
+};
+
+#endif
+
+#include "Collision.h"
+
+std::vector<std::shared_ptr<detector>> collision::detector_segments
+{
+	std::make_shared<detector>(tracker(0, 10)),
+	std::make_shared<detector>(e_calorimeter(10, 75)),
+	std::make_shared<detector>(h_calorimeter(75, 150)),
+	std::make_shared<detector>(muon_chamber(150, 250))
+};
+int collision::number_of_electrons{};
+int collision::number_of_photons{};
+int collision::number_of_hadrons{};
+int collision::number_of_muons{};
+
+collision::collision() {}
+/*std::map<std::string, std::unique_ptr<particle>> colliding_particles; // initial particles may decay
+// do probabilities of certain things happening in certain cases
+// if something does happen remove the colliding particle from colliding_particles
+// and append the new colliding particle to it, and the leftovers to particles
+// then call interact? on colliding_particles and append the outcome to particles
+// then call decay on every particle in particles
+// then draw everything in particles
+
+bool positive_z_direction{ false };
+int up_counter{}, down_counter{}, gluon_counter{};
+while (colliding_particles.size() < 2) {
+	if (colliding_particles.size() == 1) {
+		positive_z_direction = true;
+	}
+
+	double channel{ random_number<double>(0.0, 1.0) };
+	double bjorken_x{ random_number<double>(0.0, 0.01) }; // E [0, 0.01] 6.5 TeV
+
+	// say roughly 20 % of colliding partons are up or down quarks with equal probability, 80 % are gluons
+	if (channel < 0.1) {
+		up_counter++;
+		std::unique_ptr<particle> up_ptr{ new up((13e3 / 2) * bjorken_x, pi * positive_z_direction, 0.0) };
+		colliding_particles["u" + std::to_string(up_counter)] = std::move(up_ptr);
+	}
+	else if (channel < 0.2) {
+		down_counter++;
+		std::unique_ptr<particle> down_ptr{ new down((13e3 / 2) * bjorken_x, pi * positive_z_direction, 0.0) };
+		colliding_particles["d" + std::to_string(down_counter)] = std::move(down_ptr);
+	}
+	else {
+		gluon_counter++;
+		std::unique_ptr<particle> gluon_ptr{ new gluon((13e3 / 2) * bjorken_x, pi * positive_z_direction, 0.0) };
+		colliding_particles["g" + std::to_string(gluon_counter)] = std::move(gluon_ptr);
+	}
+}
+
+double total_energy{};
+std::cout << "Colliding partons:\n  ";
+for (auto it{ colliding_particles.begin() }; it != colliding_particles.end(); it++) {
+	std::cout << it->first << ":" << it->second->get_type() << "    ";
+	total_energy += it->second->get_momentum();
+}
+std::cout << std::endl << "Total collision energy = " << total_energy << " GeV" << std::endl;
+
+
+double channel{ random_number<double>(0.0, 1.0) };
+// TODO: make 3 functions for gg gq qq
+if (colliding_particles.find("g2") != colliding_particles.end()) { // gg
+	if (channel < 1.0 / 3) { // fuse the gluons
+		double momentum{};
+		for (auto it{ colliding_particles.begin() }; it != colliding_particles.end(); it++) {
+			momentum += (it->second->get_momentum_vector())[2]; // only need z zomponents, others are zero
+		}
+		double theta{};
+		if (momentum < 0) {
+			theta = pi;
+		}
+
+		std::unique_ptr<particle> gluon_ptr{ new gluon(abs(momentum), theta, 0.0) };
+		particles.push_back(std::move(gluon_ptr));
+		colliding_particles.clear();
+	}
+	else { // call B2
+
+	}
+}
+else if (colliding_particles.find("g1") != colliding_particles.end() && colliding_particles.find("g2") == colliding_particles.end()) { // gq
+	if (channel < 0.5) { // 50 % of the time the gluon decays to up-antiup or down-antidown
+
+	}
+	else {
+		double momentum{};
+		for (auto it{ colliding_particles.begin() }; it != colliding_particles.end(); it++) {
+			momentum += (it->second->get_momentum_vector())[2]; // only need z zomponents, others are zero
+		}
+		double theta{};
+		if (momentum < 0) {
+			theta = pi;
+		}
+
+		if (colliding_particles.find("d1") == colliding_particles.end()) { // q is an up quark
+			std::unique_ptr<particle> up_ptr{ new up(abs(momentum), theta, 0.0) };
+			particles.push_back(std::move(up_ptr));
+		}
+		else { // q is a down quark
+			std::unique_ptr<particle> down_ptr{ new down(abs(momentum), theta, 0.0) };
+			particles.push_back(std::move(down_ptr));
+		}
+		colliding_particles.clear();
+	}
+}
+else { // qq
+	if (channel < 0.8) {
+		for (auto it{ colliding_particles.begin() }; it != colliding_particles.end(); it++) {
+			particles.push_back(nullptr);
+			particles[particles.size() - 1] = std::move(it->second);
+		}
+	}
+	else { // VBF
+		//
+
+	}
+}
+
+}*/
+
+collision::~collision() {
+	detector_segments.clear();
+}

@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{eff}
+Paterno, M., Kowalkowski, J., and \text{Green, C.}
+\newblock {Improving robustness and computational efficiency using modern C++}.
+\newblock {\em Journal of Physics: Conference Series}, \textbf{513}(5), 2014.
+
+\bibitem{ATLAS}
+Catmore, J., Cranshaw, J., Gillam, T., Gramstad, E., Laycock, P., Ozturk, N.,
+  and \text{Stewart, G.A.}
+\newblock A new petabyte-scale data derivation framework for {ATLAS}.
+\newblock {\em Journal of Physics: Conference Series}, \textbf{664}(7), 2015.
+
+\end{thebibliography}
