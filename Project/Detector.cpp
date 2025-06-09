@@ -20,7 +20,7 @@ const std::map<std::string, double>& detector::get_interactions() const
 	return interactions;
 }
 
-void detector::draw_detector(const COLORREF& colour) const
+void detector::draw_detector(sf::RenderWindow& window) const
 {
 	HWND my_console = GetConsoleWindow();
 	HDC my_dc = GetDC(my_console);

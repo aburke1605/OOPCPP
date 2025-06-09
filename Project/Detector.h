@@ -31,7 +31,7 @@ public:
 	const std::pair<double, double>& centre();
 	const std::map<std::string, double>& get_interactions() const;
 
-	void draw_detector(const COLORREF& colour) const;
+	void draw_detector(sf::RenderWindow& window) const;
 };
 
 #endif

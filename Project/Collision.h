@@ -1,6 +1,7 @@
 #ifndef _COLLISION_INCL_GUARD
 #define _COLLISION_INCL_GUARD
 
+#include "Session.h"
 #include "Particle.h"
 #include "Particles.h"
 #include "Detectors.h"
@@ -13,12 +14,12 @@ private:
 	std::vector<std::pair<std::unique_ptr<particle>, std::pair<double, double>>> particles;
 
 public:
-	collision();
-	collision(std::unique_ptr<particle>& p);
+	collision(Session& session);
+	collision(Session& session, std::unique_ptr<particle>& p);
 	~collision();
 
 	const std::pair<double, double>& centre();
-	void draw_event();
+	void draw_event(Session& session);
 };
 
 #endif

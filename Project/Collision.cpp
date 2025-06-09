@@ -27,7 +27,7 @@ const std::vector<std::shared_ptr<detector>> collision::detector_segments
 	std::make_shared<muon_chamber>(150, 250)
 };
 
-collision::collision()
+collision::collision(Session& session)
 {
 	/*
 	The collision constructor simulates a collision between protons at the LHC
@@ -256,13 +256,13 @@ collision::collision()
 		}
 	}
 
-	this->draw_event();
+	this->draw_event(session);
 }
 
-collision::collision(std::unique_ptr<particle>& p)
+collision::collision(Session& session, std::unique_ptr<particle>& p)
 {
 	particles.push_back(std::make_pair(std::move(p), centre()));
-	this->draw_event();
+	this->draw_event(session);
 }
 
 collision::~collision()
@@ -275,7 +275,7 @@ const std::pair<double, double>& collision::centre()
 	return detector_segments[0]->centre();
 }
 
-void collision::draw_event() {
+void collision::draw_event(Session& session) {
 	/*
 	A function  to display the trajectories of all particles generated
 	in any 'collision' instance. The function invoked decays and draws
