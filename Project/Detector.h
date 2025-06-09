@@ -11,7 +11,7 @@
 class detector
 {
 protected:
-	const std::pair<double, double> centre_of_detector{ 750, 320 };
+	const std::pair<double, double> centre_of_detector{ 300, 375 };
 	const double max_energy{ 500.0 };
 	const double inner_radius;
 	const double outer_radius;
