@@ -35,10 +35,98 @@ Various advanced C++ features are used in the project:
 	- lambda functions
 */
 
+#include "Session.h"
+#include "Particle.h"
 #include "Particles.h"
 #include "Collision.h"
 
-int main() {
+#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
+
+
+#ifdef _WIN32
+    #include <windows.h>
+    #define sleep_ms(ms) Sleep(ms)
+#else
+    #include <unistd.h>
+    #define sleep_ms(ms) usleep((ms) * 1000)
+#endif
+
+
+#ifdef __EMSCRIPTEN__
+    const std::string fontPath = "/arial.ttf";
+#else
+    const std::string fontPath = "assets/arial.ttf";
+#endif
+
+
+int main() {	
+	unsigned int grid_dimension = 600;
+	sf::RenderWindow window(sf::VideoMode(grid_dimension, grid_dimension + 75), "HEP detector");
+
+	Session session{
+		window,
+		false
+	};
+
+	sf::Font* font = new sf::Font;
+	if (!font->loadFromFile(fontPath)) {
+		return EXIT_FAILURE;
+	}
+
+	sf::Text text;
+	text.setFont(*font);
+	text.setCharacterSize(15); // in pixels, not points!
+	text.setStyle(sf::Text::Bold);
+
+	text.setPosition(sf::Vector2f(4.0f, 0.0f));
+	text.setString("Electrons (& neutrinos)");
+	text.setFillColor(sf::Color::Magenta);
+	window.draw(text);
+
+	text.setPosition(sf::Vector2f(4.0f, 15.0f));
+	text.setString("Muons (& neutrinos)");
+	text.setFillColor(sf::Color::Blue);
+	window.draw(text);
+
+	text.setPosition(sf::Vector2f(4.0f, 30.0f));
+	text.setString("Taus (& neutrinos)");
+	text.setFillColor(sf::Color::Green);
+	window.draw(text);
+
+	text.setPosition(sf::Vector2f(4.0f, 45.0f));
+	text.setString("Photons");
+	text.setFillColor(sf::Color::Yellow);
+	window.draw(text);
+
+	text.setPosition(sf::Vector2f(4.0f, 60.0f));
+	text.setString("Hadrons");
+	text.setFillColor(sf::Color::Red);
+	window.draw(text);
+
+
+	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 0.0f));
+	text.setString("Tracker");
+	text.setFillColor(sf::Color(sf::Color::White.r, sf::Color::White.g, sf::Color::White.b, 150));
+	window.draw(text);
+
+	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 15.0f));
+	text.setString("Electromagnetic calorimeter");
+	text.setFillColor(sf::Color(sf::Color::Green.r, sf::Color::Green.g, sf::Color::Green.b, 150));
+	window.draw(text);
+
+	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 30.0f));
+	text.setString("Hadronic calorimeter");
+	text.setFillColor(sf::Color(sf::Color::Red.r, sf::Color::Red.g, sf::Color::Red.b, 150));
+	window.draw(text);
+
+	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 45.0f));
+	text.setString("Muon chamber");
+	text.setFillColor(sf::Color(sf::Color::Blue.r, sf::Color::Blue.g, sf::Color::Blue.b, 150));
+	window.draw(text);
+
+	window.display();
+
 	// seed the 'random_number()' function
 	srand((unsigned)std::chrono::system_clock::now().time_since_epoch().count());
 
@@ -59,24 +147,28 @@ int main() {
 	fundamental_particles["w"] = std::make_unique<w_boson>(150.0, M_PI / 2, 0.0);
 	fundamental_particles["z"] = std::make_unique<z_boson>(150.0, M_PI / 2, 0.0);
 
-	HWND my_console = GetConsoleWindow();
-	HDC my_dc = GetDC(my_console);
-
-	// print a legend
-	HANDLE stdout_handle = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(stdout_handle, 13);	std::cout << "Electrons (& neutrinos)" << std::endl;
-	SetConsoleTextAttribute(stdout_handle, 9); std::cout << "Muons (& neutrinos)" << std::endl;
-	SetConsoleTextAttribute(stdout_handle, 10); std::cout << "Taus (& neutrinos)" << std::endl;
-	SetConsoleTextAttribute(stdout_handle, 14);	std::cout << "Photons" << std::endl;
-	SetConsoleTextAttribute(stdout_handle, 12);	std::cout << "Hadrons" << std::endl;
-	SetConsoleTextAttribute(stdout_handle, 15);
-
-	ReleaseDC(my_console, my_dc);
-
 	std::cout << "Enter number of events... ";
 	int number_of_events; std::cin >> number_of_events;
+
+	text.setPosition(sf::Vector2f(grid_dimension * 0.75, grid_dimension * 0.9 + 75));
+	text.setFillColor(sf::Color::White);
+	text.setString("Event count:");
+	window.draw(text);
+	window.display();
+	sf::RectangleShape hide(sf::Vector2f(130, 20));
+	hide.setPosition(grid_dimension * 0.75, grid_dimension * 0.9 + 75);
+	hide.setFillColor(sf::Color::Black);
+
 	for (int i{}; i < number_of_events; i++) {
-		std::unique_ptr<collision> LHC_event = std::make_unique<collision>();
+		std::unique_ptr<collision> LHC_event = std::make_unique<collision>(session);
+
+		window.draw(hide);
+		sf::String event_count("Event count: " + std::to_string(i+1));
+		text.setString(event_count);
+		window.draw(text);
+		window.display();
+
+		sleep_ms(1000);
 	}
 	std::cout << "Would you like a specific decay? (Y/y)... ";
 	std::string answer; std::cin >> answer;
@@ -99,7 +191,7 @@ int main() {
 			if (anti && which != "p" && which != "z") {
 				particle_type->make_antiparticle();
 			}
-			std::unique_ptr<collision> decay = std::make_unique<collision>(particle_type);
+			std::unique_ptr<collision> decay = std::make_unique<collision>(session, particle_type);
 		}
 		else {
 			std::cout << "Particle type not found." << std::endl;

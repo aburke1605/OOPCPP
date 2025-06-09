@@ -1,14 +1,14 @@
 #ifndef _PARTICLE_INCL_HEADER
 #define _PARTICLE_INCL_HEADER
 
-#define _USE_MATH_DEFINES // for M_PI
+constexpr double M_PI = 3.14159265358979323846;
 
 #include <iostream>
 #include <string>
-#include <cmath>
 #include <vector>
 #include <map>
 #include <chrono>
+#include <memory>
 #include "Random.h"
 
 class particle
