@@ -1,5 +1,7 @@
 #include "Collision.h"
 
+#include <cfloat>
+
 const std::map<std::string, sf::Color> collision::colours
 {
 	{"ELECTRON", sf::Color::Magenta}, {"ANTIELECTRON", sf::Color::Magenta},

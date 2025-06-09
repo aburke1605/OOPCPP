@@ -9,6 +9,7 @@
 #include <vector>
 #include <map>
 #include <chrono>
+#include <memory>
 #include "Random.h"
 
 class particle
