@@ -21,8 +21,8 @@ const std::map<std::string, sf::Color> collision::colours
 
 const std::vector<std::shared_ptr<detector>> collision::detector_segments
 {
-	std::make_shared<tracker>(0, 10),
-	std::make_shared<e_calorimeter>(10, 75),
+	std::make_shared<tracker>(0, 20),
+	std::make_shared<e_calorimeter>(20, 75),
 	std::make_shared<h_calorimeter>(75, 150),
 	std::make_shared<muon_chamber>(150, 250)
 };
