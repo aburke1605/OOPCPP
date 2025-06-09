@@ -1,22 +1,22 @@
 #include "Collision.h"
 
-const std::map<std::string, COLORREF> collision::colours
+const std::map<std::string, sf::Color> collision::colours
 {
-	{"ELECTRON", RGB(188, 27, 188)}, {"ANTIELECTRON", RGB(188, 27, 188)},
-	{"ELECTRON-NEUTRINO", RGB(188, 27, 188)}, {"ANTIELECTRON-NEUTRINO", RGB(188, 27, 188)},
-	{"MUON", RGB(0, 0, 255)}, {"ANTIMUON", RGB(0, 0, 255)},
-	{"MUON-NEUTRINO", RGB(0, 0, 255)}, {"ANTIMUON-NEUTRINO", RGB(0, 0, 255)},
-	{"TAU", RGB(0, 255, 0)}, {"ANTITAU", RGB(0, 255, 0)},
-	{"TAU-NEUTRINO", RGB(0, 255, 0)}, {"ANTITAU-NEUTRINO", RGB(0, 255, 0)},
-	{"UP", RGB(255, 0, 0)}, {"ANTIUP", RGB(255, 0, 0)},
-	{"DOWN", RGB(255, 0, 0)}, {"ANTIDOWN", RGB(255, 0, 0)},
-	{"CHARM", RGB(255, 0, 0)}, {"ANTICHARM", RGB(255, 0, 0)},
-	{"STRANGE", RGB(255, 0, 0)}, {"ANTISTRANGE", RGB(255, 0, 0)},
-	{"TOP", RGB(255, 0, 0)}, {"ANTITOP", RGB(255, 0, 0)},
-	{"BOTTOM", RGB(255, 0, 0)}, {"ANTIBOTTOM", RGB(255, 0, 0)},
-	{"PHOTON", RGB(255, 255, 0)},
-	{"Z BOSON", RGB(0, 0, 0)},
-	{"W BOSON", RGB(0, 0, 0)}, {"ANTIW BOSON", RGB(0, 0, 0)}
+	{"ELECTRON", sf::Color::Magenta}, {"ANTIELECTRON", sf::Color::Magenta},
+	{"ELECTRON-NEUTRINO", sf::Color::Magenta}, {"ANTIELECTRON-NEUTRINO", sf::Color::Magenta},
+	{"MUON", sf::Color::Blue}, {"ANTIMUON", sf::Color::Blue},
+	{"MUON-NEUTRINO", sf::Color::Blue}, {"ANTIMUON-NEUTRINO", sf::Color::Blue},
+	{"TAU", sf::Color::Green}, {"ANTITAU", sf::Color::Green},
+	{"TAU-NEUTRINO", sf::Color::Green}, {"ANTITAU-NEUTRINO", sf::Color::Green},
+	{"UP", sf::Color::Red}, {"ANTIUP", sf::Color::Red},
+	{"DOWN", sf::Color::Red}, {"ANTIDOWN", sf::Color::Red},
+	{"CHARM", sf::Color::Red}, {"ANTICHARM", sf::Color::Red},
+	{"STRANGE", sf::Color::Red}, {"ANTISTRANGE", sf::Color::Red},
+	{"TOP", sf::Color::Red}, {"ANTITOP", sf::Color::Red},
+	{"BOTTOM", sf::Color::Red}, {"ANTIBOTTOM", sf::Color::Red},
+	{"PHOTON", sf::Color::Yellow},
+	{"Z BOSON", sf::Color::Black},
+	{"W BOSON", sf::Color::Black}, {"ANTIW BOSON", sf::Color::Black}
 };
 
 const std::vector<std::shared_ptr<detector>> collision::detector_segments
@@ -290,7 +290,7 @@ void collision::draw_event(Session& session) {
 	
 	for (int j{}; j < (int)particles.size(); j++){
 		auto it{ &particles.at(j) };
-		COLORREF colour{ colours.find(it->first->get_type())->second };
+		sf::Color colour{ colours.find(it->first->get_type())->second };
 
 		double radius_of_curvature{}; // has to be calculated before energy is subtracted
 		if (it->first->get_charge() != 0) {
