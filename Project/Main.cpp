@@ -148,8 +148,24 @@ int main() {
 
 	std::cout << "Enter number of events... ";
 	int number_of_events; std::cin >> number_of_events;
+
+	text.setPosition(sf::Vector2f(grid_dimension * 0.75, grid_dimension * 0.9 + 75));
+	text.setFillColor(sf::Color::White);
+	text.setString("Event count:");
+	window.draw(text);
+	window.display();
+	sf::RectangleShape hide(sf::Vector2f(130, 20));
+	hide.setPosition(grid_dimension * 0.75, grid_dimension * 0.9 + 75);
+	hide.setFillColor(sf::Color::Black);
+
 	for (int i{}; i < number_of_events; i++) {
 		std::unique_ptr<collision> LHC_event = std::make_unique<collision>(session);
+
+		window.draw(hide);
+		sf::String event_count("Event count: " + std::to_string(i+1));
+		text.setString(event_count);
+		window.draw(text);
+		window.display();
 
 		sleep_ms(1000);
 	}
