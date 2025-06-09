@@ -93,6 +93,27 @@ int main() {
 	text.setFillColor(sf::Color::Red);
 	window.draw(text);
 
+
+	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 0.0f));
+	text.setString("Tracker");
+	text.setFillColor(sf::Color(sf::Color::White.r, sf::Color::White.g, sf::Color::White.b, 150));
+	window.draw(text);
+
+	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 15.0f));
+	text.setString("Electromagnetic calorimeter");
+	text.setFillColor(sf::Color(sf::Color::Green.r, sf::Color::Green.g, sf::Color::Green.b, 150));
+	window.draw(text);
+
+	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 30.0f));
+	text.setString("Hadronic calorimeter");
+	text.setFillColor(sf::Color(sf::Color::Red.r, sf::Color::Red.g, sf::Color::Red.b, 150));
+	window.draw(text);
+
+	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 45.0f));
+	text.setString("Muon chamber");
+	text.setFillColor(sf::Color(sf::Color::Blue.r, sf::Color::Blue.g, sf::Color::Blue.b, 150));
+	window.draw(text);
+
 	window.display();
 
 	// seed the 'random_number()' function
