@@ -1,5 +1,5 @@
 /*
-Author: Aodhán Burke
+Author: Aodhï¿½n Burke
 Last Modified: 11/05/2020
 
 
@@ -69,64 +69,6 @@ int main() {
 		false
 	};
 
-	sf::Font* font = new sf::Font;
-	if (!font->loadFromFile(fontPath)) {
-		return EXIT_FAILURE;
-	}
-
-	sf::Text text;
-	text.setFont(*font);
-	text.setCharacterSize(15); // in pixels, not points!
-	text.setStyle(sf::Text::Bold);
-
-	text.setPosition(sf::Vector2f(4.0f, 0.0f));
-	text.setString("Electrons (& neutrinos)");
-	text.setFillColor(sf::Color::Magenta);
-	window.draw(text);
-
-	text.setPosition(sf::Vector2f(4.0f, 15.0f));
-	text.setString("Muons (& neutrinos)");
-	text.setFillColor(sf::Color::Blue);
-	window.draw(text);
-
-	text.setPosition(sf::Vector2f(4.0f, 30.0f));
-	text.setString("Taus (& neutrinos)");
-	text.setFillColor(sf::Color::Green);
-	window.draw(text);
-
-	text.setPosition(sf::Vector2f(4.0f, 45.0f));
-	text.setString("Photons");
-	text.setFillColor(sf::Color::Yellow);
-	window.draw(text);
-
-	text.setPosition(sf::Vector2f(4.0f, 60.0f));
-	text.setString("Hadrons");
-	text.setFillColor(sf::Color::Red);
-	window.draw(text);
-
-
-	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 0.0f));
-	text.setString("Tracker");
-	text.setFillColor(sf::Color(sf::Color::White.r, sf::Color::White.g, sf::Color::White.b, 150));
-	window.draw(text);
-
-	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 15.0f));
-	text.setString("Electromagnetic calorimeter");
-	text.setFillColor(sf::Color(sf::Color::Green.r, sf::Color::Green.g, sf::Color::Green.b, 150));
-	window.draw(text);
-
-	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 30.0f));
-	text.setString("Hadronic calorimeter");
-	text.setFillColor(sf::Color(sf::Color::Red.r, sf::Color::Red.g, sf::Color::Red.b, 150));
-	window.draw(text);
-
-	text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 45.0f));
-	text.setString("Muon chamber");
-	text.setFillColor(sf::Color(sf::Color::Blue.r, sf::Color::Blue.g, sf::Color::Blue.b, 150));
-	window.draw(text);
-
-	window.display();
-
 	// seed the 'random_number()' function
 	srand((unsigned)std::chrono::system_clock::now().time_since_epoch().count());
 
@@ -147,58 +89,91 @@ int main() {
 	fundamental_particles["w"] = std::make_unique<w_boson>(150.0, M_PI / 2, 0.0);
 	fundamental_particles["z"] = std::make_unique<z_boson>(150.0, M_PI / 2, 0.0);
 
-	std::cout << "Enter number of events... ";
-	int number_of_events; std::cin >> number_of_events;
+	while (window.isOpen()) {
+		window.clear(sf::Color::Black); // reset previous frame
 
-	text.setPosition(sf::Vector2f(grid_dimension * 0.75, grid_dimension * 0.9 + 75));
-	text.setFillColor(sf::Color::White);
-	text.setString("Event count:");
-	window.draw(text);
-	window.display();
-	sf::RectangleShape hide(sf::Vector2f(130, 20));
-	hide.setPosition(grid_dimension * 0.75, grid_dimension * 0.9 + 75);
-	hide.setFillColor(sf::Color::Black);
+		sf::Font* font = new sf::Font;
+		if (!font->loadFromFile(fontPath)) {
+			return EXIT_FAILURE;
+		}
 
-	for (int i{}; i < number_of_events; i++) {
-		std::unique_ptr<collision> LHC_event = std::make_unique<collision>(session);
+		sf::Text text;
+		text.setFont(*font);
+		text.setCharacterSize(15); // in pixels, not points!
+		text.setStyle(sf::Text::Bold);
 
-		window.draw(hide);
-		sf::String event_count("Event count: " + std::to_string(i+1));
-		text.setString(event_count);
+		text.setPosition(sf::Vector2f(4.0f, 0.0f));
+		text.setString("Electrons (& neutrinos)");
+		text.setFillColor(sf::Color::Magenta);
 		window.draw(text);
+
+		text.setPosition(sf::Vector2f(4.0f, 15.0f));
+		text.setString("Muons (& neutrinos)");
+		text.setFillColor(sf::Color::Blue);
+		window.draw(text);
+
+		text.setPosition(sf::Vector2f(4.0f, 30.0f));
+		text.setString("Taus (& neutrinos)");
+		text.setFillColor(sf::Color::Green);
+		window.draw(text);
+
+		text.setPosition(sf::Vector2f(4.0f, 45.0f));
+		text.setString("Photons");
+		text.setFillColor(sf::Color::Yellow);
+		window.draw(text);
+
+		text.setPosition(sf::Vector2f(4.0f, 60.0f));
+		text.setString("Hadrons");
+		text.setFillColor(sf::Color::Red);
+		window.draw(text);
+
+
+		text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 0.0f));
+		text.setString("Tracker");
+		text.setFillColor(sf::Color(sf::Color::White.r, sf::Color::White.g, sf::Color::White.b, 150));
+		window.draw(text);
+
+		text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 15.0f));
+		text.setString("Electromagnetic calorimeter");
+		text.setFillColor(sf::Color(sf::Color::Green.r, sf::Color::Green.g, sf::Color::Green.b, 150));
+		window.draw(text);
+
+		text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 30.0f));
+		text.setString("Hadronic calorimeter");
+		text.setFillColor(sf::Color(sf::Color::Red.r, sf::Color::Red.g, sf::Color::Red.b, 150));
+		window.draw(text);
+
+		text.setPosition(sf::Vector2f(grid_dimension /  2 + 4.0f, 45.0f));
+		text.setString("Muon chamber");
+		text.setFillColor(sf::Color(sf::Color::Blue.r, sf::Color::Blue.g, sf::Color::Blue.b, 150));
+		window.draw(text);
+
 		window.display();
 
-		sleep_ms(1000);
+		text.setPosition(sf::Vector2f(grid_dimension * 0.75, grid_dimension * 0.9 + 75));
+		text.setFillColor(sf::Color::White);
+		text.setString("Event count:");
+		window.draw(text);
+		window.display();
+		sf::RectangleShape hide(sf::Vector2f(130, 20));
+		hide.setPosition(grid_dimension * 0.75, grid_dimension * 0.9 + 75);
+		hide.setFillColor(sf::Color::Black);
+
+		for (int i{}; i < 10; i++) {
+			std::unique_ptr<collision> LHC_event = std::make_unique<collision>(session);
+
+			window.draw(hide);
+			sf::String event_count("Event count: " + std::to_string(i+1));
+			text.setString(event_count);
+			window.draw(text);
+			window.display();
+
+			sleep_ms(1000);
+		}
+
+		session.detector = false;
+		sleep_ms(5000);
 	}
-	std::cout << "Would you like a specific decay? (Y/y)... ";
-	std::string answer; std::cin >> answer;
-	if (answer == "Y" || answer == "y") {
-		std::cout << "Which particle from the list:\n    ";
-		for (auto it{ fundamental_particles.begin() }; it != fundamental_particles.end(); it++) {
-			std::cout << it->first << ",";
-		}
-		std::cout << std::endl << "(prepend \"a\" for the equivalent antiparticle)?... ";
-		std::string which; std::cin >> which;
-		bool anti{ false };
-		if (which[0] == 'a') {
-			which = which.substr(1, which.size() - 1);
-			std::cout << which << std::endl;
-			anti = true;
-		}
-		auto iterator{ fundamental_particles.find(which) };
-		if (iterator != fundamental_particles.end()) {
-			std::unique_ptr<particle> particle_type{ std::move(iterator->second) };
-			if (anti && which != "p" && which != "z") {
-				particle_type->make_antiparticle();
-			}
-			std::unique_ptr<collision> decay = std::make_unique<collision>(session, particle_type);
-		}
-		else {
-			std::cout << "Particle type not found." << std::endl;
-		}
-	}
-	std::cout << "Enter anything to end... ";
-	std::string a; std::cin >> a;
 
 	return 0;
 }
