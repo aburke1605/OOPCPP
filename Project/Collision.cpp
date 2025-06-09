@@ -288,6 +288,13 @@ void collision::draw_event(Session& session) {
 	HWND my_console = GetConsoleWindow();
 	HDC my_dc = GetDC(my_console);
 	
+	// first draw detector
+	if (!session.detector) {
+		for (auto it{ detector_segments.begin() }; it != detector_segments.end(); it++)
+			(*it)->draw_detector(session.window);
+		session.detector = true;
+	}
+
 	for (int j{}; j < (int)particles.size(); j++){
 		auto it{ &particles.at(j) };
 		sf::Color colour{ colours.find(it->first->get_type())->second };

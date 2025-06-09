@@ -21,10 +21,7 @@ protected:
 public:
 	detector() : inner_radius{}, outer_radius{} {}
 	detector(const double& radius_1, const double& radius_2, const sf::Color& colour) :
-		inner_radius{ radius_1 }, outer_radius{ radius_2 }, colour{ colour }
-	{
-		draw_detector(colour);
-	}
+		inner_radius{ radius_1 }, outer_radius{ radius_2 }, colour{ colour } {}
 	virtual ~detector() {}
 
 	double get_inner_radius() const;
