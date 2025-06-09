@@ -285,14 +285,12 @@ void collision::draw_event(Session& session) {
 	         in the 'particles' container
 	*/
 
-	HWND my_console = GetConsoleWindow();
-	HDC my_dc = GetDC(my_console);
-	
 	// first draw detector
 	if (!session.detector) {
 		for (auto it{ detector_segments.begin() }; it != detector_segments.end(); it++)
 			(*it)->draw_detector(session.window);
 		session.detector = true;
+		session.window.display();
 	}
 
 	for (int j{}; j < (int)particles.size(); j++){
@@ -345,7 +343,11 @@ void collision::draw_event(Session& session) {
 						it->first->set_phi(it->first->get_phi() - 1 / radius_of_curvature);
 					}
 				}
-				SetPixel(my_dc, (int)X, (int)Y, colour);
+				sf::RectangleShape pixel(sf::Vector2f(1.0, 1.0));
+				pixel.setFillColor(colour);
+				pixel.setPosition(X, Y);
+				session.window.draw(pixel);
+				session.window.display();
 				it->second.first = X;
 				it->second.second = Y;
 
@@ -383,5 +385,4 @@ void collision::draw_event(Session& session) {
 			}
 		}
 	}
-	ReleaseDC(my_console, my_dc);
 }
