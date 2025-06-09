@@ -349,7 +349,6 @@ void collision::draw_event(Session& session) {
 				pixel.setFillColor(colour);
 				pixel.setPosition(X, Y);
 				session.window.draw(pixel);
-				session.window.display();
 				it->second.first = X;
 				it->second.second = Y;
 
@@ -386,5 +385,6 @@ void collision::draw_event(Session& session) {
 				propagating = false;
 			}
 		}
+		session.window.display();
 	}
 }

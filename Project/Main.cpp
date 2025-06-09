@@ -42,6 +42,16 @@ Various advanced C++ features are used in the project:
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 
+
+#ifdef _WIN32
+    #include <windows.h>
+    #define sleep_ms(ms) Sleep(ms)
+#else
+    #include <unistd.h>
+    #define sleep_ms(ms) usleep((ms) * 1000)
+#endif
+
+
 #ifdef __EMSCRIPTEN__
     const std::string fontPath = "/arial.ttf";
 #else
@@ -140,6 +150,8 @@ int main() {
 	int number_of_events; std::cin >> number_of_events;
 	for (int i{}; i < number_of_events; i++) {
 		std::unique_ptr<collision> LHC_event = std::make_unique<collision>(session);
+
+		sleep_ms(1000);
 	}
 	std::cout << "Would you like a specific decay? (Y/y)... ";
 	std::string answer; std::cin >> answer;
