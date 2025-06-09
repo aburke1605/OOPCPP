@@ -36,6 +36,7 @@ Various advanced C++ features are used in the project:
 */
 
 #include "Session.h"
+#include "Particle.h"
 #include "Particles.h"
 #include "Collision.h"
 
