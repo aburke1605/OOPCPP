@@ -64,8 +64,8 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(grid_dimension, grid_dimension + 75), "HEP detector");
 
 	Session session{
-		.window = window,
-		.detector = false
+		window,
+		false
 	};
 
 	sf::Font* font = new sf::Font;
