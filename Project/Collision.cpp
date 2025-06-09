@@ -300,8 +300,8 @@ void collision::draw_event(Session& session) {
 		sf::Color colour{ colours.find(it->first->get_type())->second };
 
 		double radius_of_curvature{}; // has to be calculated before energy is subtracted
-		if (it->first->get_charge() != 0) {
-			radius_of_curvature = (it->first->get_energy()) / (abs(it->first->get_charge()) * 2.0); // 2 Tesla
+		if (it->first->get_charge() != 0.0) {
+			radius_of_curvature = (it->first->get_energy()) / (std::abs(it->first->get_charge()) * 2.0); // 2 Tesla
 			radius_of_curvature *= sqrt(1 - pow(it->first->get_mass() / it->first->get_energy(), 2));
 			radius_of_curvature *= 7; // for visual
 		}
