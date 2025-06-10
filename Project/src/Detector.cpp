@@ -1,4 +1,4 @@
-#include "Detector.h"
+#include "../include/Detector.h"
 
 double detector::get_inner_radius() const
 {

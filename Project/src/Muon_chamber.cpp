@@ -1,4 +1,4 @@
-#include "Muon_chamber.h"
+#include "../include/Muon_chamber.h"
 
 muon_chamber::muon_chamber() : detector{}
 {

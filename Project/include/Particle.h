@@ -1,7 +1,7 @@
 #ifndef _PARTICLE_INCL_HEADER
 #define _PARTICLE_INCL_HEADER
 
-constexpr double M_PI = 3.14159265358979323846;
+constexpr double pi = 3.14159265358979323846;
 
 #include <iostream>
 #include <string>

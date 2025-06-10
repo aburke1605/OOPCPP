@@ -35,10 +35,10 @@ Various advanced C++ features are used in the project:
 	- lambda functions
 */
 
-#include "Session.h"
-#include "Particle.h"
-#include "Particles.h"
-#include "Collision.h"
+#include "include/Session.h"
+#include "include/Particle.h"
+#include "include/Particles.h"
+#include "include/Collision.h"
 
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>

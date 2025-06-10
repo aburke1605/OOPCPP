@@ -1,4 +1,4 @@
-#include "HCalorimeter.h"
+#include "../include/HCalorimeter.h"
 
 h_calorimeter::h_calorimeter() : detector{}
 {

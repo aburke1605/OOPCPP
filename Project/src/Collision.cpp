@@ -1,4 +1,4 @@
-#include "Collision.h"
+#include "../include/Collision.h"
 
 #include <cfloat>
 
@@ -52,15 +52,15 @@ collision::collision(Session& session)
 		double bjorken_x{ random_number<double>(0.015, 0.075) }; // E [0.015, 0.075] 6.5 TeV
 		if (parton_selection < 1.0 / 3) {
 			up_counter++;
-			colliding_particles["u" + std::to_string(up_counter)] = std::make_unique<up>((13e3 / 2) * bjorken_x, M_PI * positive_z_direction, 0.0);
+			colliding_particles["u" + std::to_string(up_counter)] = std::make_unique<up>((13e3 / 2) * bjorken_x, pi * positive_z_direction, 0.0);
 		}
 		else if (parton_selection < 2.0 / 3) {
 			down_counter++;
-			colliding_particles["d" + std::to_string(down_counter)] = std::make_unique<down>((13e3 / 2) * bjorken_x, M_PI * positive_z_direction, 0.0);
+			colliding_particles["d" + std::to_string(down_counter)] = std::make_unique<down>((13e3 / 2) * bjorken_x, pi * positive_z_direction, 0.0);
 		}
 		else {
 			gluon_counter++;
-			colliding_particles["g" + std::to_string(gluon_counter)] = std::make_unique<gluon>((13e3 / 2) * bjorken_x, M_PI * positive_z_direction, 0.0);
+			colliding_particles["g" + std::to_string(gluon_counter)] = std::make_unique<gluon>((13e3 / 2) * bjorken_x, pi * positive_z_direction, 0.0);
 		}
 	}
 
@@ -308,9 +308,9 @@ void collision::draw_event(Session& session) {
 		if (radius_of_curvature <= detector_segments[detector_segments.size() - 1]->get_outer_radius()) {
 			radius_of_curvature = 0.75 * detector_segments[detector_segments.size() - 1]->get_outer_radius();
 		}
-		double centre_phi{ it->first->get_phi() + M_PI / 2 };
+		double centre_phi{ it->first->get_phi() + pi / 2 };
 		if (it->first->get_charge() < 0) { // curves the opposite way
-			centre_phi -= M_PI;
+			centre_phi -= pi;
 		}
 		double centre_of_curvature_x{ it->second.first + radius_of_curvature * cos(centre_phi) };
 		double centre_of_curvature_y{ it->second.second + radius_of_curvature * sin(centre_phi) };
@@ -335,13 +335,13 @@ void collision::draw_event(Session& session) {
 				}
 				else {
 					if (it->first->get_charge() > 0.0) {
-						X = (radius_of_curvature * cos(it->first->get_phi() + 3 * M_PI / 2) + centre_of_curvature_x);
-						Y = (radius_of_curvature * sin(it->first->get_phi() + 3 * M_PI / 2) + centre_of_curvature_y);
+						X = (radius_of_curvature * cos(it->first->get_phi() + 3 * pi / 2) + centre_of_curvature_x);
+						Y = (radius_of_curvature * sin(it->first->get_phi() + 3 * pi / 2) + centre_of_curvature_y);
 						it->first->set_phi(it->first->get_phi() + 1 / radius_of_curvature);
 					}
 					else {
-						X = (radius_of_curvature * cos(it->first->get_phi() - 3 * M_PI / 2) + centre_of_curvature_x);
-						Y = (radius_of_curvature * sin(it->first->get_phi() - 3 * M_PI / 2) + centre_of_curvature_y);
+						X = (radius_of_curvature * cos(it->first->get_phi() - 3 * pi / 2) + centre_of_curvature_x);
+						Y = (radius_of_curvature * sin(it->first->get_phi() - 3 * pi / 2) + centre_of_curvature_y);
 						it->first->set_phi(it->first->get_phi() - 1 / radius_of_curvature);
 					}
 				}

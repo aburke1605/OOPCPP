@@ -1,4 +1,4 @@
-#include "Particles.h"
+#include "../include/Particles.h"
 
 up::up(bool is_antiup)
 {

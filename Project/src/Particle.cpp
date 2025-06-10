@@ -1,5 +1,5 @@
-#include "Particle.h"
-#include "Recoil.h"
+#include "../include/Particle.h"
+#include "../include/Recoil.h"
 
 std::string particle::get_type() const
 {
@@ -196,7 +196,7 @@ void particle::decay(particle& parent_particle, const double& momentum)
 		mom = sqrt(pow(this->get_momentum(), 2) / 4 - pow(decay_particles[channel][0]->mass, 2));
 	}
 	theta = 0.25; // corresponds to polar angle from z axis defined as the parent particle momentum vector
-	phi = random_number<double>(-M_PI, M_PI); // corresponds to the randomly generated azimuthal angle around parent particle momentum vector
+	phi = random_number<double>(-pi, pi); // corresponds to the randomly generated azimuthal angle around parent particle momentum vector
 	mom_x = mom * sin(theta) * cos(phi);
 	mom_y = mom * sin(theta) * sin(phi);
 	mom_z = mom * cos(theta);
