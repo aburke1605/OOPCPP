@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.15)
-project (project)
-set(APP_NAME "project")
+project (Collider)
+set(APP_NAME "Collider")
 set(APP_VERSION "1.0.0")
 set(APP_IDENTIFIER "com.Username.App")
 
@@ -224,6 +224,8 @@ elseif(EMSCRIPTEN)
         -sTOTAL_MEMORY=16mb
 
         --shell-file=${CMAKE_SOURCE_DIR}/shell.html
+
+        --preload-file ${CMAKE_SOURCE_DIR}/assets/arial.ttf@/arial.ttf
     )
     set(CMAKE_EXECUTABLE_SUFFIX ".html")
     set(SFML_DIR "${SFML_LOC}/lib/cmake/SFML")
