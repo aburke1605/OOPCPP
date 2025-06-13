@@ -8,6 +8,8 @@
 #include <vector>
 #include <map>
 
+#include "Colours.h"
+
 class detector
 {
 protected:

@@ -5,7 +5,7 @@ h_calorimeter::h_calorimeter() : detector{}
 	//std::cout << "Default hadronic calorimeter constructor called" << std::endl;
 }
 
-h_calorimeter::h_calorimeter(const double& radius_1, const double& radius_2) : detector{ radius_1,radius_2,sf::Color::Red }
+h_calorimeter::h_calorimeter(const double& radius_1, const double& radius_2) : detector{ radius_1,radius_2,CustomColour::Red }
 {
 	//std::cout << "Parametrised hadronic calorimeter constructor called, radius = " << radius << std::endl;
 	// any quark:

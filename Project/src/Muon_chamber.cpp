@@ -5,7 +5,7 @@ muon_chamber::muon_chamber() : detector{}
 	//std::cout << "Default muon chamber constructor called" << std::endl;
 }
 
-muon_chamber::muon_chamber(const double& radius_1, const double& radius_2) : detector{ radius_1,radius_2,sf::Color::Blue }
+muon_chamber::muon_chamber(const double& radius_1, const double& radius_2) : detector{ radius_1,radius_2,CustomColour::Blue }
 {
 	//std::cout << "Parametrised muon chamber constructor called, radius = " << radius << std::endl;
 	// muons only:

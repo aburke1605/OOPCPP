@@ -5,7 +5,7 @@ tracker::tracker() : detector{}
 	//std::cout << "Default tracker constructor called" << std::endl;
 }
 
-tracker::tracker(const double& radius_1, const double& radius_2) : detector{ radius_1,radius_2,sf::Color::White }
+tracker::tracker(const double& radius_1, const double& radius_2) : detector{ radius_1,radius_2,CustomColour::White }
 {
 	//std::cout << "Parametrised tracker constructor called, radius = " << radius << std::endl;
 	interactions["TOP"] = 0.0;

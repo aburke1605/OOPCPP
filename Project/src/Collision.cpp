@@ -1,24 +1,25 @@
 #include "../include/Collision.h"
+#include "../include/Colours.h"
 
 #include <cfloat>
 
 const std::map<std::string, sf::Color> collision::colours
 {
-	{"ELECTRON", sf::Color::Magenta}, {"ANTIELECTRON", sf::Color::Magenta},
-	{"ELECTRON-NEUTRINO", sf::Color::Magenta}, {"ANTIELECTRON-NEUTRINO", sf::Color::Magenta},
-	{"MUON", sf::Color::Blue}, {"ANTIMUON", sf::Color::Blue},
-	{"MUON-NEUTRINO", sf::Color::Blue}, {"ANTIMUON-NEUTRINO", sf::Color::Blue},
-	{"TAU", sf::Color::Green}, {"ANTITAU", sf::Color::Green},
-	{"TAU-NEUTRINO", sf::Color::Green}, {"ANTITAU-NEUTRINO", sf::Color::Green},
-	{"UP", sf::Color::Red}, {"ANTIUP", sf::Color::Red},
-	{"DOWN", sf::Color::Red}, {"ANTIDOWN", sf::Color::Red},
-	{"CHARM", sf::Color::Red}, {"ANTICHARM", sf::Color::Red},
-	{"STRANGE", sf::Color::Red}, {"ANTISTRANGE", sf::Color::Red},
-	{"TOP", sf::Color::Red}, {"ANTITOP", sf::Color::Red},
-	{"BOTTOM", sf::Color::Red}, {"ANTIBOTTOM", sf::Color::Red},
-	{"PHOTON", sf::Color::Yellow},
-	{"Z BOSON", sf::Color::Black},
-	{"W BOSON", sf::Color::Black}, {"ANTIW BOSON", sf::Color::Black}
+	{"ELECTRON", CustomColour::Magenta}, {"ANTIELECTRON", CustomColour::Magenta},
+	{"ELECTRON-NEUTRINO", CustomColour::Magenta}, {"ANTIELECTRON-NEUTRINO", CustomColour::Magenta},
+	{"MUON", CustomColour::Blue}, {"ANTIMUON", CustomColour::Blue},
+	{"MUON-NEUTRINO", CustomColour::Blue}, {"ANTIMUON-NEUTRINO", CustomColour::Blue},
+	{"TAU", CustomColour::Green}, {"ANTITAU", CustomColour::Green},
+	{"TAU-NEUTRINO", CustomColour::Green}, {"ANTITAU-NEUTRINO", CustomColour::Green},
+	{"UP", CustomColour::Red}, {"ANTIUP", CustomColour::Red},
+	{"DOWN", CustomColour::Red}, {"ANTIDOWN", CustomColour::Red},
+	{"CHARM", CustomColour::Red}, {"ANTICHARM", CustomColour::Red},
+	{"STRANGE", CustomColour::Red}, {"ANTISTRANGE", CustomColour::Red},
+	{"TOP", CustomColour::Red}, {"ANTITOP", CustomColour::Red},
+	{"BOTTOM", CustomColour::Red}, {"ANTIBOTTOM", CustomColour::Red},
+	{"PHOTON", CustomColour::Yellow},
+	{"Z BOSON", CustomColour::Black},
+	{"W BOSON", CustomColour::Black}, {"ANTIW BOSON", CustomColour::Black}
 };
 
 const std::vector<std::shared_ptr<detector>> collision::detector_segments

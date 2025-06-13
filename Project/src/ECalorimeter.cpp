@@ -5,7 +5,7 @@ e_calorimeter::e_calorimeter() : detector{}
 	//std::cout << "Default electronic calorimeter constructor called" << std::endl;
 }
 
-e_calorimeter::e_calorimeter(const double& radius_1, const double& radius_2) : detector{ radius_1,radius_2,sf::Color::Green }
+e_calorimeter::e_calorimeter(const double& radius_1, const double& radius_2) : detector{ radius_1,radius_2,CustomColour::Green }
 {
 	interactions["ELECTRON"] = (radius_2 - radius_1) / max_energy;
 	interactions["TOP"] = 0.0;
@@ -17,6 +17,7 @@ e_calorimeter::e_calorimeter(const double& radius_1, const double& radius_2) : d
 	}
 	interactions["PHOTON"] = (radius_2 - radius_1) / max_energy; // TODO
 	interactions["Z BOSON"] = 0.0;
+
 	//std::cout << "Parametrised electronic calorimeter constructor called, outer radius = " << radius_2 << std::endl;
 }
 
