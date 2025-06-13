@@ -292,7 +292,7 @@ void collision::draw_event(Session& session) {
 	if (!session.detector) {
 		for (auto it{ detector_segments.begin() }; it != detector_segments.end(); it++)
 			(*it)->draw_detector(session.window);
-		session.detector = true;
+		// session.detector = true;
 		// session.window.display();
 	}
 
