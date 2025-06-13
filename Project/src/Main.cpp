@@ -89,15 +89,15 @@ int main() {
 	fundamental_particles["w"] = std::make_unique<w_boson>(150.0, M_PI / 2, 0.0);
 	fundamental_particles["z"] = std::make_unique<z_boson>(150.0, M_PI / 2, 0.0);
 
+	sf::Font* font = new sf::Font;
+	if (!font->loadFromFile(fontPath)) {
+		return EXIT_FAILURE;
+	}
+	sf::Text text;
+
 	while (window.isOpen()) {
 		window.clear(sf::Color::Black); // reset previous frame
 
-		sf::Font* font = new sf::Font;
-		if (!font->loadFromFile(fontPath)) {
-			return EXIT_FAILURE;
-		}
-
-		sf::Text text;
 		text.setFont(*font);
 		text.setCharacterSize(15); // in pixels, not points!
 		text.setStyle(sf::Text::Bold);
@@ -148,31 +148,11 @@ int main() {
 		text.setFillColor(sf::Color(sf::Color::Blue.r, sf::Color::Blue.g, sf::Color::Blue.b, 150));
 		window.draw(text);
 
+		std::unique_ptr<collision> LHC_event = std::make_unique<collision>(session);
+
 		window.display();
 
-		text.setPosition(sf::Vector2f(grid_dimension * 0.75, grid_dimension * 0.9 + 75));
-		text.setFillColor(sf::Color::White);
-		text.setString("Event count:");
-		window.draw(text);
-		window.display();
-		sf::RectangleShape hide(sf::Vector2f(130, 20));
-		hide.setPosition(grid_dimension * 0.75, grid_dimension * 0.9 + 75);
-		hide.setFillColor(sf::Color::Black);
-
-		for (int i{}; i < 10; i++) {
-			std::unique_ptr<collision> LHC_event = std::make_unique<collision>(session);
-
-			window.draw(hide);
-			sf::String event_count("Event count: " + std::to_string(i+1));
-			text.setString(event_count);
-			window.draw(text);
-			window.display();
-
-			sleep_ms(1000);
-		}
-
-		session.detector = false;
-		sleep_ms(5000);
+		sleep_ms(2500);
 	}
 
 	return 0;

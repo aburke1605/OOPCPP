@@ -293,7 +293,7 @@ void collision::draw_event(Session& session) {
 		for (auto it{ detector_segments.begin() }; it != detector_segments.end(); it++)
 			(*it)->draw_detector(session.window);
 		session.detector = true;
-		session.window.display();
+		// session.window.display();
 	}
 
 	for (int j{}; j < (int)particles.size(); j++){
@@ -386,6 +386,6 @@ void collision::draw_event(Session& session) {
 				propagating = false;
 			}
 		}
-		session.window.display();
+		// session.window.display();
 	}
 }
