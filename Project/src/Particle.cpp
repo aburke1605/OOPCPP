@@ -34,17 +34,10 @@ void particle::set_momentum(std::vector<double>& mom)
 double particle::get_theta() const
 {
 	double theta;
-	const int divide_flag(-1);
-	try {
-		if (get_momentum() == 0) {
-			throw divide_flag;
-		}
+	if (get_momentum() == 0) {
+		theta = 0.0; // arbitrary if momentum is zero
+	} else {
 		theta = acos(momentum[2] / get_momentum());
-	}
-	catch (int error) {
-		if (error == divide_flag) {
-			theta = 0.0; // arbitrary if momentum is zero
-		}
 	}
 	return theta;
 }
@@ -52,17 +45,10 @@ double particle::get_theta() const
 double particle::get_phi() const
 {
 	double phi;
-	const int divide_flag(-1);
-	try {
-		if (get_momentum() == 0 || get_theta() == 0) {
-			throw divide_flag;
-		}
+	if (get_momentum() == 0 || get_theta() == 0) {
+		phi = 0.0; // arbitrary if transverse component is zero
+	} else {
 		phi = atan2(momentum[1], momentum[0]);
-	}
-	catch (int error) {
-		if (error == divide_flag) {
-			phi = 0.0; // arbitrary if transverse component is zero
-		}
 	}
 	return phi;
 }
